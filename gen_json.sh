@@ -11,7 +11,7 @@ curl \
 curl \
 	-H "Accept: application/vnd.github.mercy-preview+json" \
 	'https://api.github.com/search/issues?q=type:pr+is:merged+author:cljoly&per_page=100' \
-	| sqlite-utils insert tmp.db repo -
+	| sqlite-utils insert tmp.db prs -
 
 echo "data retrieved"
 
