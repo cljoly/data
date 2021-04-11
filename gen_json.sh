@@ -56,7 +56,7 @@ sqlite-utils query tmp.db --json-cols "SELECT DISTINCT \
 # -------
 
 sqlite-utils query tmp.db --json-cols "SELECT \
-	title, html_url, state, body FROM prs \
+	created_at, title, html_url, state, body FROM prs \
 	WHERE author_association <> 'OWNER' \
 	AND title NOT LIKE '%typo%' \
 	AND state = 'closed' \
