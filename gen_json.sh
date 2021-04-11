@@ -11,6 +11,7 @@ curl \
 curl \
 	-H "Accept: application/vnd.github.mercy-preview+json" \
 	'https://api.github.com/search/issues?q=type:pr+is:merged+author:cljoly&per_page=100' \
+	| jq '.items'
 	| sqlite-utils insert tmp.db prs -
 
 echo "data retrieved"
@@ -51,6 +52,15 @@ sqlite-utils query tmp.db --json-cols "SELECT DISTINCT \
 	FROM featured_repo \
 	WHERE rowid IN (SELECT rid FROM topic WHERE t = 'wip') \
 	ORDER BY pushed_at DESC" > wip_repos.json
+
+# -------
+
+sqlite-utils query tmp.db --json-cols "SELECT \
+	title, html_url, state, body FROM prs \
+	WHERE author_association <> 'OWNER' \
+	AND title NOT LIKE '%typo%' \
+	AND state = 'closed' \
+	AND html_url NOT LIKE '%/joly122u/%';" > prs.json
 
 echo "JSONs created"
 
