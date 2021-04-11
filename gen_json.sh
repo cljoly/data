@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 set -e pipe
-#set -x
+set -x
 
 curl \
 	-H "Accept: application/vnd.github.mercy-preview+json" \
@@ -55,12 +55,13 @@ sqlite-utils query tmp.db --json-cols "SELECT DISTINCT \
 
 # -------
 
-sqlite-utils query tmp.db --json-cols "SELECT \
-	created_at, title, html_url, state, body FROM prs \
+sqlite-utils query tmp.db --json-cols "SELECT DISTINCT \
+	created_at, title, html_url, state FROM prs \
 	WHERE author_association <> 'OWNER' \
 	AND title NOT LIKE '%typo%' \
 	AND state = 'closed' \
 	AND html_url NOT LIKE '%/joly122u/%' \
+	AND created_at > '2018-12-31T00:00:00Z' \
 	ORDER BY created_at DESC" > prs.json
 
 echo "JSONs created"
