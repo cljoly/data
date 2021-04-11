@@ -32,8 +32,8 @@ jobs:
         pip install -r requirements.txt
     - name: Install jq
       run: |
-        apt update
-        apt install jq
+        sudo apt update
+        sudo apt install jq
     - name: Generate JSON content
       run: bash ./gen_json.sh
     - name: Commit and push if there are changes
