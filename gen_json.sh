@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 set -e pipe
-set -x
+#set -x
 
 curl \
 	-H "Accept: application/vnd.github.mercy-preview+json" \
@@ -11,7 +11,7 @@ curl \
 curl \
 	-H "Accept: application/vnd.github.mercy-preview+json" \
 	'https://api.github.com/search/issues?q=type:pr+is:merged+author:cljoly&per_page=100' \
-	| jq '.items'
+	| jq '.items' \
 	| sqlite-utils insert tmp.db prs -
 
 echo "data retrieved"
@@ -60,7 +60,8 @@ sqlite-utils query tmp.db --json-cols "SELECT \
 	WHERE author_association <> 'OWNER' \
 	AND title NOT LIKE '%typo%' \
 	AND state = 'closed' \
-	AND html_url NOT LIKE '%/joly122u/%';" > prs.json
+	AND html_url NOT LIKE '%/joly122u/%' \
+	ORDER BY created_at DESC" > prs.json
 
 echo "JSONs created"
 
