@@ -75,7 +75,6 @@ sqlite-utils query tmp.db --json-cols "SELECT DISTINCT \
 	GROUP BY repository_url \
 	ORDER BY pr_count DESC" > contributed_repos.json
 
-
 echo "JSONs created"
 
 rm tmp.db
