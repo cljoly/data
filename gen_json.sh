@@ -56,14 +56,25 @@ sqlite-utils query tmp.db --json-cols "SELECT DISTINCT \
 
 # -------
 
-sqlite-utils query tmp.db --json-cols "SELECT DISTINCT \
-	created_at, title, html_url, state FROM prs \
+sqlite-utils create-view tmp.db featured_prs "SELECT DISTINCT \
+	created_at, title, html_url, state, repository_url FROM prs \
 	WHERE author_association <> 'OWNER' \
 	AND title NOT LIKE '%typo%' \
 	AND state = 'closed' \
 	AND html_url NOT LIKE '%/joly122u/%' \
 	AND created_at > '2018-12-31T00:00:00Z' \
 	ORDER BY created_at DESC" > prs.json
+
+sqlite-utils query tmp.db --json-cols "SELECT DISTINCT \
+	created_at, title, html_url, state FROM featured_prs \
+	ORDER BY created_at DESC" > prs.json
+
+sqlite-utils query tmp.db --json-cols "SELECT DISTINCT \
+	'https://github.com/' || substr(repository_url, 30) as repo_url, COUNT(*) pr_count \
+	FROM featured_prs \
+	GROUP BY repository_url \
+	ORDER BY pr_count DESC" > contributed_repos.json
+
 
 echo "JSONs created"
 
