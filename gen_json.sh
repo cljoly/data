@@ -10,7 +10,7 @@ curl \
 
 curl \
 	-H "Accept: application/vnd.github.mercy-preview+json" \
-	'https://api.github.com/search/issues?q=type:pr+is:merged+author:cljoly&per_page=100' \
+	'https://api.github.com/search/issues?q=type:pr+author:cljoly&per_page=100' \
 	| jq '.items' \
 	| sqlite-utils insert tmp.db prs -
 
@@ -60,7 +60,6 @@ sqlite-utils create-view tmp.db featured_prs "SELECT DISTINCT \
 	created_at, title, html_url, state, repository_url FROM prs \
 	WHERE author_association <> 'OWNER' \
 	AND title NOT LIKE '%typo%' \
-	AND state = 'closed' \
 	AND html_url NOT LIKE '%/joly122u/%' \
 	AND created_at > '2018-12-31T00:00:00Z' \
 	ORDER BY created_at DESC" > prs.json
