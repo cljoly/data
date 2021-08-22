@@ -21,7 +21,7 @@ sqlite-utils create-view tmp.db topic "SELECT DISTINCT \
 	FROM repo, json_each(topics)"
 
 sqlite-utils create-view tmp.db featured_repo "SELECT DISTINCT \
-	rowid, private, pushed_at, name, html_url, topics, description, stargazers_count, homepage \
+	rowid, private, pushed_at, name, html_url, topics, description, stargazers_count, homepage, archived \
 	FROM repo WHERE \
 	(fork <> 1 OR rowid IN (SELECT rid FROM topic WHERE t = 'maintained-fork')) \
 	AND stargazers_count > 0 AND rowid NOT IN (SELECT rid FROM topic WHERE t = 'internal') \
