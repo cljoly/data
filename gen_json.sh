@@ -33,19 +33,15 @@ sqlite-utils query tmp.db --json-cols "SELECT DISTINCT \
 	* \
 	FROM featured_repo \
 	WHERE rowid NOT IN (SELECT rid FROM topic WHERE t = 'archived') \
-	ORDER BY pushed_at DESC" > unarchived_repos.json
-
-sqlite-utils query tmp.db --json-cols "SELECT DISTINCT \
-	* \
-	FROM featured_repo \
-	WHERE rowid NOT IN (SELECT rid FROM topic WHERE t = 'archived') \
 	AND rowid NOT IN (SELECT rid FROM topic WHERE t = 'wip') \
+	AND archived == 0 \
 	ORDER BY pushed_at DESC" > unarchived_repos.json
 
 sqlite-utils query tmp.db --json-cols "SELECT DISTINCT \
 	* \
 	FROM featured_repo \
 	WHERE rowid IN (SELECT rid FROM topic WHERE t = 'archived') \
+	OR archived == 1 \
 	ORDER BY pushed_at DESC" > archived_repos.json
 
 sqlite-utils query tmp.db --json-cols "SELECT DISTINCT \
