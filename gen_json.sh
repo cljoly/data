@@ -26,7 +26,7 @@ sqlite-utils create-view tmp.db topic "SELECT DISTINCT \
 	FROM repo, json_each(topics)"
 
 sqlite-utils create-view tmp.db featured_repo "SELECT DISTINCT \
-	rowid, private, pushed_at, name, html_url, topics, description, \
+	repo.rowid AS rowid, private, pushed_at, name, html_url, topics, description, \
 	stargazers_count, homepage, archived, language, color \
 	FROM repo \
 	JOIN linguist ON liguist.lang = repo.language \
