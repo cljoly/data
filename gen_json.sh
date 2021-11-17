@@ -4,6 +4,11 @@ set -e pipe
 set -x
 
 curl \
+	https://raw.githubusercontent.com/github/linguist/master/lib/linguist/languages.yml \
+	| yq '[to_entries[] | {lang: .key, color: .value.color}]' \
+	| sqlite-utils insert tmp.db linguist -
+
+curl \
 	-H "Accept: application/vnd.github.mercy-preview+json" \
 	'https://api.github.com/users/cljoly/repos?page=1&sort=pushed&per_page=100' \
 	| sqlite-utils insert tmp.db repo -
@@ -21,8 +26,11 @@ sqlite-utils create-view tmp.db topic "SELECT DISTINCT \
 	FROM repo, json_each(topics)"
 
 sqlite-utils create-view tmp.db featured_repo "SELECT DISTINCT \
-	rowid, private, pushed_at, name, html_url, topics, description, stargazers_count, homepage, archived \
-	FROM repo WHERE \
+	rowid, private, pushed_at, name, html_url, topics, description, \
+	stargazers_count, homepage, archived, language, color \
+	FROM repo \
+	JOIN linguist ON liguist.lang = repo.language \
+	WHERE \
 	(fork <> 1 OR rowid IN (SELECT rid FROM topic WHERE t = 'maintained-fork')) \
 	AND stargazers_count > 0 AND rowid NOT IN (SELECT rid FROM topic WHERE t = 'internal') \
 	AND private == 0"
