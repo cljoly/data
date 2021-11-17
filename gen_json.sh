@@ -29,7 +29,7 @@ sqlite-utils create-view tmp.db featured_repo "SELECT DISTINCT \
 	repo.rowid AS rowid, private, pushed_at, name, html_url, topics, description, \
 	stargazers_count, homepage, archived, language, color \
 	FROM repo \
-	JOIN linguist ON liguist.lang = repo.language \
+	JOIN linguist ON lang = repo.language \
 	WHERE \
 	(fork <> 1 OR rowid IN (SELECT rid FROM topic WHERE t = 'maintained-fork')) \
 	AND stargazers_count > 0 AND rowid NOT IN (SELECT rid FROM topic WHERE t = 'internal') \
