@@ -9,7 +9,7 @@ import os
 os.system("~/.local/bin/git-history file stars.db unarchived_repos.json --branch master")
 
 stars_over_time_by_repo = sqlite_utils.Database("stars.db")
-rows = stars_over_time_by_repo.query("""SELECT name, min(pushed_at) as pushed_at, stargazers_count FROM item WHERE pushed_at > "2020-01-01" AND stargazers_count > 2 GROUP BY name, pushed_at ORDER BY name, pushed_at""")
+rows = stars_over_time_by_repo.query("""SELECT name, min(pushed_at) as pushed_at, stargazers_count FROM item WHERE pushed_at > "2020-01-01" AND stargazers_count > 2 GROUP BY name, stargazers_count ORDER BY name, pushed_at""")
 stars_over_time_by_repo = {}
 for row in rows:
     repo = row['name']
