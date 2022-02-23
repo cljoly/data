@@ -1,4 +1,4 @@
-[{"created_at": "2022-02-23T20:38:21Z", "title": "use the current executable for `comodoro run`", "html_url": "https://github.com/soywod/comodoro/pull/12", "state": "open"},
+[{"created_at": "2022-02-23T20:38:21Z", "title": "use the current executable for `comodoro run`", "html_url": "https://github.com/soywod/comodoro/pull/12", "state": "closed"},
  {"created_at": "2022-01-13T21:49:12Z", "title": "website: Move to neovide.dev", "html_url": "https://github.com/neovide/neovide/pull/1145", "state": "closed"},
  {"created_at": "2022-01-03T14:46:49Z", "title": "Feature: insert issue reference on <CR>", "html_url": "https://github.com/nvim-telescope/telescope-github.nvim/pull/33", "state": "closed"},
  {"created_at": "2022-01-02T15:34:01Z", "title": "Starting point for a website", "html_url": "https://github.com/neovide/neovide/pull/1114", "state": "closed"},
