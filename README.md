@@ -1,6 +1,6 @@
-# data
+# Data Repository for [cj.rs](https.//cj.rs/?ref=gh_data)
 
-Data sets to populate some parts of my website (mostly cj.rs/open-source/).
+Data sets to populate some parts of my website (mostly [cj.rs/open-source/](https://cj.rs/open-source/)).
 
 ## JSON Files
 
