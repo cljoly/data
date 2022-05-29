@@ -64,7 +64,8 @@ sqlite-utils query tmp.db --json-cols "SELECT DISTINCT \
 	* \
 	FROM featured_repo \
 	WHERE rowid IN (SELECT rid FROM topic WHERE t = 'wip') \
-	ORDER BY pushed_at DESC" > wip_repos.json
+	AND archived == 0 \
+        ORDER BY pushed_at DESC" > wip_repos.json
 
 # -------
 
