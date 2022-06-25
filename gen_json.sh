@@ -87,6 +87,10 @@ sqlite-utils query tmp.db --json-cols "SELECT DISTINCT \
 	GROUP BY repository_url \
 	ORDER BY pr_count DESC" > contributed_repos.json
 
+# =========
+
+curl 'https://webmention.io/api/mentions.jf2?target=https://cj.rs'>webmentions.json
+
 echo "JSONs created"
 
 rm tmp.db
