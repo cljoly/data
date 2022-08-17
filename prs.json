@@ -1,4 +1,5 @@
-[{"created_at": "2022-05-08T12:42:49Z", "title": "refactor: use nvim_set_hl to speed up startup time", "html_url": "https://github.com/navarasu/onedark.nvim/pull/76", "state": "open"},
+[{"created_at": "2022-08-17T23:31:59Z", "title": "Add feature to copy to clipboard", "html_url": "https://github.com/jltwheeler/nvim-git-link/pull/2", "state": "open"},
+ {"created_at": "2022-05-08T12:42:49Z", "title": "refactor: use nvim_set_hl to speed up startup time", "html_url": "https://github.com/navarasu/onedark.nvim/pull/76", "state": "open"},
  {"created_at": "2022-03-27T14:21:58Z", "title": "Add `cljoly/telescope-repo.nvim`", "html_url": "https://github.com/rockerBOO/awesome-neovim/pull/351", "state": "closed"},
  {"created_at": "2022-03-20T13:20:00Z", "title": "fix: asciinema player with https://cj.rs/gohugo-asciinema/", "html_url": "https://github.com/PierreMarchand20/personal_webpage/pull/3", "state": "closed"},
  {"created_at": "2022-02-23T20:38:21Z", "title": "use the current executable for `comodoro run`", "html_url": "https://github.com/soywod/comodoro/pull/12", "state": "closed"},
