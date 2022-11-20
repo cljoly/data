@@ -8,6 +8,10 @@ if [[ "${TRACE-0}" == "1" ]]; then
 fi
 cd "$(dirname "$0")"
 
+# Start fresh
+if [[ -f tmp.db ]]; then
+    rm tmp.db
+fi
 
 curl \
 	https://raw.githubusercontent.com/github/linguist/master/lib/linguist/languages.yml \
@@ -98,5 +102,3 @@ sqlite-utils query tmp.db --json-cols "SELECT DISTINCT \
 curl 'https://webmention.io/api/mentions.jf2?target=https://cj.rs'>webmentions.json
 
 echo "JSONs created"
-
-rm tmp.db
