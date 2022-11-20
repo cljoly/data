@@ -80,15 +80,17 @@ sqlite-utils query tmp.db --json-cols "SELECT DISTINCT \
 # -------
 
 sqlite-utils create-view tmp.db featured_prs "SELECT DISTINCT \
-	created_at, title, html_url, state, repository_url FROM prs \
+	created_at, title, html_url, state, repository_url \
+    FROM prs \
 	WHERE author_association <> 'OWNER' \
 	AND title NOT LIKE '%typo%' \
 	AND html_url NOT LIKE '%/joly122u/%' \
 	AND created_at > '2018-12-31T00:00:00Z' \
-	ORDER BY created_at DESC" > prs.json
+	ORDER BY created_at DESC"
 
 sqlite-utils query tmp.db --json-cols "SELECT DISTINCT \
-	created_at, title, html_url, state FROM featured_prs \
+	created_at, title, html_url, state \
+    FROM featured_prs \
 	ORDER BY created_at DESC" > prs.json
 
 sqlite-utils query tmp.db --json-cols "SELECT DISTINCT \
