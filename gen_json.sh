@@ -1,7 +1,13 @@
 #!/usr/bin/env bash
 
-set -e pipe
-set -x
+set -o errexit
+set -o nounset
+set -o pipefail
+if [[ "${TRACE-0}" == "1" ]]; then
+    set -o xtrace
+fi
+cd "$(dirname "$0")"
+
 
 curl \
 	https://raw.githubusercontent.com/github/linguist/master/lib/linguist/languages.yml \
