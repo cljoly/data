@@ -1,0 +1,39 @@
+query ($endCursor: String) {
+  viewer {
+    repositories(
+      first: 30
+      after: $endCursor
+      privacy: PUBLIC
+      orderBy: {field: PUSHED_AT, direction: DESC}
+    ) {
+      nodes {
+        name
+        isPrivate
+        pushedAt
+        url
+        description
+        stargazerCount
+        homepageUrl
+        isArchived
+        primaryLanguage {
+          id
+          color
+          name
+        }
+        repositoryTopics(first: 10) {
+          edges {
+            node {
+              topic {
+                name
+              }
+            }
+          }
+        }
+      }
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
+    }
+  }
+}
