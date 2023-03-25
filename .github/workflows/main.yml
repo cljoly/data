@@ -34,6 +34,7 @@ jobs:
       run: bash ./gen_json.sh
       env:
         TRACE: 1
+        GH_TOKEN: ${{ github.token }}
     - name: Commit and push if there are changes
       run: |-
         git diff
