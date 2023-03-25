@@ -18,15 +18,15 @@ curl \
 	| yq '[to_entries[] | {lang: .key, color: .value.color}]' \
 	| sqlite-utils insert tmp.db linguist -
 
-curl \
+gh api \
 	-H "Accept: application/vnd.github.mercy-preview+json" \
 	'https://api.github.com/users/cljoly/repos?page=1&sort=pushed&per_page=100' \
 	| sqlite-utils insert tmp.db repo -
 
-curl \
+gh api \
 	-H "Accept: application/vnd.github.mercy-preview+json" \
+	-q '.items' \
 	'https://api.github.com/search/issues?q=type:pr+author:cljoly&per_page=100' \
-	| jq '.items' \
 	| sqlite-utils insert tmp.db prs -
 
 echo "data retrieved"
