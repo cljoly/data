@@ -3,7 +3,6 @@
  {"repo_url": "https://github.com/neovide/neovide", "pr_count": 2},
  {"repo_url": "https://github.com/mitchellh/go-server-timing", "pr_count": 2},
  {"repo_url": "https://github.com/twpayne/chezmoi", "pr_count": 1},
- {"repo_url": "https://github.com/starship/starship", "pr_count": 1},
  {"repo_url": "https://github.com/soywod/comodoro", "pr_count": 1},
  {"repo_url": "https://github.com/simrat39/symbols-outline.nvim", "pr_count": 1},
  {"repo_url": "https://github.com/sharkdp/hyperfine", "pr_count": 1},
@@ -26,7 +25,6 @@
  {"repo_url": "https://github.com/fish-shell/fish-shell", "pr_count": 1},
  {"repo_url": "https://github.com/cloudflare/cloudflare-docs", "pr_count": 1},
  {"repo_url": "https://github.com/asciinema/asciinema-player", "pr_count": 1},
- {"repo_url": "https://github.com/SpaceVim/SpaceVim", "pr_count": 1},
  {"repo_url": "https://github.com/PierreMarchand20/personal_webpage", "pr_count": 1},
  {"repo_url": "https://github.com/IFS49F/Tab2QR", "pr_count": 1},
  {"repo_url": "https://github.com/ChrisAntaki/disable-webrtc-firefox", "pr_count": 1}]
