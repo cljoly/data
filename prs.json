@@ -30,5 +30,4 @@
  {"created_at": "2020-10-12T22:04:33Z", "title": "Add option to disable writing headers", "html_url": "https://github.com/mitchellh/go-server-timing/pull/19", "state": "closed"},
  {"created_at": "2020-09-23T05:37:19Z", "title": "Add Server-Timing header to unread page", "html_url": "https://github.com/miniflux/v2/pull/806", "state": "closed"},
  {"created_at": "2020-06-20T16:11:39Z", "title": "Add fish shell completions", "html_url": "https://github.com/mullvad/mullvadvpn-app/pull/1860", "state": "closed"},
- {"created_at": "2020-06-13T17:48:30Z", "title": "Firefox dev tools support server timing", "html_url": "https://github.com/mitchellh/go-server-timing/pull/17", "state": "closed"},
- {"created_at": "2020-04-18T14:38:04Z", "title": "Add shortcut to get QR code for current page", "html_url": "https://github.com/IFS49F/Tab2QR/pull/2", "state": "closed"}]
+ {"created_at": "2020-06-13T17:48:30Z", "title": "Firefox dev tools support server timing", "html_url": "https://github.com/mitchellh/go-server-timing/pull/17", "state": "closed"}]
