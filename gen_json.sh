@@ -18,11 +18,13 @@ curl \
 	| yq '[to_entries[] | {lang: .key, color: .value.color}]' \
 	| sqlite-utils insert tmp.db linguist -
 
+sleep 10
 gh api \
 	-H "Accept: application/vnd.github.mercy-preview+json" \
 	'https://api.github.com/users/cljoly/repos?page=1&sort=pushed&per_page=100' \
 	| sqlite-utils insert tmp.db repo -
 
+sleep 10
 gh api \
 	-H "Accept: application/vnd.github.mercy-preview+json" \
 	-q '.items' \
