@@ -19,16 +19,16 @@ curl \
 	| sqlite-utils insert tmp.db linguist -
 
 sleep 10
-gh api \
+gh api --paginate \
 	-H "Accept: application/vnd.github.mercy-preview+json" \
-	'https://api.github.com/users/cljoly/repos?page=1&sort=pushed&per_page=100' \
+	'https://api.github.com/users/cljoly/repos?page=1&sort=pushed' \
 	| sqlite-utils insert tmp.db repo -
 
 sleep 10
-gh api \
+gh api --paginate \
 	-H "Accept: application/vnd.github.mercy-preview+json" \
 	-q '.items' \
-	'https://api.github.com/search/issues?q=type:pr+author:cljoly&per_page=100' \
+	'https://api.github.com/search/issues?q=type:pr+author:cljoly' \
 	| sqlite-utils insert tmp.db prs -
 
 echo "data retrieved"
