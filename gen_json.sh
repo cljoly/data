@@ -22,7 +22,7 @@ sleep 10
 gh api --paginate \
 	-H "Accept: application/vnd.github.mercy-preview+json" \
 	'https://api.github.com/users/cljoly/repos?page=1&sort=pushed' \
-	| jq --color-output -s 'flatten(1)' \
+	| jq -s 'flatten(1)' \
 	| sqlite-utils insert tmp.db repo -
 
 sleep 10
@@ -30,7 +30,7 @@ gh api --paginate \
 	-H "Accept: application/vnd.github.mercy-preview+json" \
 	-q '.items' \
 	'https://api.github.com/search/issues?q=type:pr+author:cljoly' \
-	| jq --color-output -s 'flatten(1)' \
+	| jq -s 'flatten(1)' \
 	| sqlite-utils insert tmp.db prs -
 
 echo "data retrieved"
