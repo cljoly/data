@@ -14,6 +14,7 @@
  {"repo_url": "https://github.com/phaazon/hop.nvim", "pr_count": 1},
  {"repo_url": "https://github.com/ojroques/nvim-hardline", "pr_count": 1},
  {"repo_url": "https://github.com/nvim-telescope/telescope-github.nvim", "pr_count": 1},
+ {"repo_url": "https://github.com/neovim/nvim-lspconfig", "pr_count": 1},
  {"repo_url": "https://github.com/mullvad/mullvadvpn-app", "pr_count": 1},
  {"repo_url": "https://github.com/miniflux/v2", "pr_count": 1},
  {"repo_url": "https://github.com/mickael-menu/zk-nvim", "pr_count": 1},
