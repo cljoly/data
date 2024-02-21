@@ -26,7 +26,7 @@
  {"created_at": "2021-10-02T23:58:18Z", "title": "Improvements to the documentation", "html_url": "https://github.com/rmagatti/goto-preview/pull/32", "state": "closed"},
  {"created_at": "2021-08-27T21:02:39Z", "title": "Add svg icon for ycombinator", "html_url": "https://github.com/adityatelange/hugo-PaperMod/pull/535", "state": "closed"},
  {"created_at": "2021-08-21T21:24:25Z", "title": "Never display the toc when it would be empty", "html_url": "https://github.com/adityatelange/hugo-PaperMod/pull/532", "state": "closed"},
- {"created_at": "2021-06-28T21:00:49Z", "title": "Fix duplicate helptags.", "html_url": "https://github.com/phaazon/hop.nvim/pull/111", "state": "closed"},
+ {"created_at": "2021-06-28T21:00:49Z", "title": "Fix duplicate helptags.", "html_url": "https://github.com/hadronized/hop.nvim/pull/111", "state": "closed"},
  {"created_at": "2021-06-20T11:42:50Z", "title": "Add hop.nvim plugin support", "html_url": "https://github.com/navarasu/onedark.nvim/pull/4", "state": "closed"},
  {"created_at": "2021-06-17T22:13:23Z", "title": "Add support for LspReference*", "html_url": "https://github.com/navarasu/onedark.nvim/pull/3", "state": "closed"},
  {"created_at": "2021-06-01T07:32:20Z", "title": "Fallback to `cmd --help` when `man cmd` errors", "html_url": "https://github.com/fish-shell/fish-shell/pull/8041", "state": "closed"},
