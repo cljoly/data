@@ -82,6 +82,26 @@ sqlite-utils query tmp.db --json-cols "SELECT DISTINCT \
         ORDER BY pushed_at DESC" > wip_repos.json
 
 # -------
+# Special requests
+
+sqlite-utils query tmp.db --json-cols "SELECT DISTINCT \
+	* \
+	FROM featured_repo \
+	WHERE rowid NOT IN (SELECT rid FROM topic WHERE t = 'archived') \
+	AND rowid NOT IN (SELECT rid FROM topic WHERE t = 'wip') \
+	AND rowid IN (SELECT rid FROM topic WHERE t = 'neovim-plugin') \
+	AND archived == 0 \
+	ORDER BY stargazers_count DESC" > unarchived_nvim_most_stars_repos.json
+
+sqlite-utils query tmp.db --json-cols "SELECT DISTINCT \
+	* \
+	FROM featured_repo \
+	WHERE rowid IN (SELECT rid FROM topic WHERE t = 'wip') \
+	AND rowid IN (SELECT rid FROM topic WHERE t = 'neovim-plugin') \
+	AND archived == 0 \
+        ORDER BY pushed_at DESC" > wip_nvim_repos.json
+
+# -------
 
 sqlite-utils create-view tmp.db featured_prs "SELECT DISTINCT \
 	created_at, title, html_url, state, repository_url \
