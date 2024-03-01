@@ -101,6 +101,13 @@ sqlite-utils query tmp.db --json-cols "SELECT DISTINCT \
 	AND archived == 0 \
         ORDER BY pushed_at DESC" > wip_nvim_repos.json
 
+sqlite-utils query tmp.db --json-cols "SELECT DISTINCT \
+	* \
+	FROM featured_repo \
+	WHERE rowid IN (SELECT rid FROM topic WHERE t = 'hugo-module') \
+	AND archived == 0 \
+        ORDER BY pushed_at DESC" > hugo_modules_repos.json
+
 # -------
 
 sqlite-utils create-view tmp.db featured_prs "SELECT DISTINCT \
