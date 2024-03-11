@@ -48,7 +48,7 @@ jobs:
     steps:
     - name: Check out repo
       uses: actions/checkout@v3
-    - run: bash ./gen_json_priviledged.sh
+    - run: bash ./gen_json_privileged.sh
       env:
         GH_TOKEN: ${{ secrets.TOKEN_ADMINI }}
     - name: Commit and push if there are changes
