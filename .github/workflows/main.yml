@@ -42,6 +42,7 @@ jobs:
         git config --global user.name "bot"
         git diff --quiet || (git add *.json && git commit -m "Updated data")
         git push
+
   priviledged:
     runs-on: ubuntu-latest
     permissions:
@@ -56,6 +57,15 @@ jobs:
       security-events: read
       statuses: read
     steps:
-      - run: bash ./gen_json_priviledged.sh
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Check out repo
+      uses: actions/checkout@v3
+    - run: bash ./gen_json_priviledged.sh
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Commit and push if there are changes
+      run: |-
+        git diff
+        git config --global user.email "bot@example.com"
+        git config --global user.name "bot"
+        git diff --quiet || (git add *.json && git commit -m "Updated data")
+        git push
