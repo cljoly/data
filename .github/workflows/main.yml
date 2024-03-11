@@ -56,5 +56,5 @@ jobs:
         git diff
         git config --global user.email "bot@example.com"
         git config --global user.name "bot"
-        git diff --quiet || (git add *.json && git commit -m "Updated data")
+        git diff --quiet || (git add nvim/*.json && git commit -m "Updated data")
         git push
