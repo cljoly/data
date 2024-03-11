@@ -56,6 +56,6 @@ jobs:
       security-events: read
       statuses: read
     steps:
-      - run: bash ./gen_json_priviledged.json
+      - run: bash ./gen_json_priviledged.sh
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
