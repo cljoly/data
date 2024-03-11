@@ -134,14 +134,4 @@ sqlite-utils query tmp.db --json-cols "SELECT DISTINCT \
 
 curl 'https://webmention.io/api/mentions.jf2?target=https://cj.rs'>webmentions.json
 
-# =========
-
-# Should be fine with GitHub limits since it’s a small number of read-only
-# requests:
-# https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api?apiVersion=2022-11-28
-for repo in telescope-repo.nvim bepo.nvim minimal-format.nvim
-do
-    gh api https://api.github.com/repos/cljoly/${repo}/traffic/clones?per=week | jq --compact-output '.clones | sort_by(.timestamp) | .[-2] | {schemaVersion: 1, label: "clones/week", message: .count, color: "purple"}' >./nvim/${repo/.nvim/}.json
-done
-
 echo "JSONs created"
