@@ -61,7 +61,7 @@ jobs:
       uses: actions/checkout@v3
     - run: bash ./gen_json_priviledged.sh
       env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GH_TOKEN: ${{ secrets.TOKEN_ADMINI }}
     - name: Commit and push if there are changes
       run: |-
         git diff
