@@ -1,5 +1,10 @@
 # Data Repository for [cj.rs](https.//cj.rs/?ref=gh_data)
 
+
+[![Build JSON data files](https://github.com/cljoly/data/actions/workflows/main.yml/badge.svg)](https://github.com/cljoly/data/actions/workflows/main.yml)
+![GitHub deployments](https://img.shields.io/github/deployments/cljoly/data/github-pages?label=pages%20deployment)
+
+
 Data sets to populate some parts of my website (mostly [cj.rs/open-source/](https://cj.rs/open-source/)).
 
 ## JSON Files
