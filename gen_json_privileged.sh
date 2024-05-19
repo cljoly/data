@@ -20,7 +20,7 @@ do
     # Takes the numbers from the penultimate entry in the array, under the
     # assumption that the current week is the last item
     gh api https://api.github.com/repos/cljoly/${repo}/traffic/clones?per=week | \
-        jq --compact-output '.clones | sort_by(.timestamp) | .[-2] | {schemaVersion: 1, label: "clones/week", message: (.count or 0 | tostring), color: "purple"}' \
+        jq --compact-output '.clones | sort_by(.timestamp) | .[-2] | {schemaVersion: 1, label: "clones/week", message: (.count + 0 | tostring), color: "purple"}' \
         >./nvim/${repo/.nvim/}.json
 done
 
