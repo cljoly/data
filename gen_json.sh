@@ -8,7 +8,7 @@ if [[ "${TRACE-0}" == "1" ]]; then
 fi
 cd "$(dirname "$0")"
 
-DELAY=60
+DELAY=180
 
 # Start fresh
 if [[ -f tmp.db ]]; then
