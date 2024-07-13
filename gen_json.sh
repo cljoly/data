@@ -8,27 +8,32 @@ if [[ "${TRACE-0}" == "1" ]]; then
 fi
 cd "$(dirname "$0")"
 
-DELAY=180
+DELAY=600
 
 # Start fresh
 if [[ -f tmp.db ]]; then
     rm tmp.db
 fi
 
-curl \
-	https://raw.githubusercontent.com/github/linguist/master/lib/linguist/languages.yml \
-	| yq '[to_entries[] | {lang: .key, color: .value.color}]' \
-	| sqlite-utils insert tmp.db linguist -
+retry() {
+    for _ in $(seq 1 10)
+    do
+        "$@" && break || sleep $DELAY
+    done
+}
 
-sleep $DELAY
-gh api --paginate \
+retry gh api --paginate \
 	-H "Accept: application/vnd.github.mercy-preview+json" \
 	'https://api.github.com/users/cljoly/repos?page=1&sort=pushed' \
 	| jq -s 'flatten(1)' \
 	| sqlite-utils insert tmp.db repo -
 
-sleep $DELAY
-gh api --paginate \
+curl \
+	https://raw.githubusercontent.com/github/linguist/master/lib/linguist/languages.yml \
+	| yq '[to_entries[] | {lang: .key, color: .value.color}]' \
+	| sqlite-utils insert tmp.db linguist -
+
+retry gh api --paginate \
 	-H "Accept: application/vnd.github.mercy-preview+json" \
 	-q '.items' \
 	'https://api.github.com/search/issues?q=type:pr+author:cljoly' \
