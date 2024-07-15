@@ -26,19 +26,19 @@ retry gh api --paginate \
 	-H "Accept: application/vnd.github.mercy-preview+json" \
 	'https://api.github.com/users/cljoly/repos?page=1&sort=pushed' \
 	| jq -s 'flatten(1)' \
-	| sqlite-utils insert tmp.db repo -
+	| sqlite-utils insert --insert tmp.db repo -
 
 curl \
 	https://raw.githubusercontent.com/github/linguist/master/lib/linguist/languages.yml \
 	| yq '[to_entries[] | {lang: .key, color: .value.color}]' \
-	| sqlite-utils insert tmp.db linguist -
+	| sqlite-utils insert --insert tmp.db linguist -
 
 retry gh api --paginate \
 	-H "Accept: application/vnd.github.mercy-preview+json" \
 	-q '.items' \
 	'https://api.github.com/search/issues?q=type:pr+author:cljoly' \
 	| jq -s 'flatten(1)' \
-	| sqlite-utils insert tmp.db prs -
+	| sqlite-utils insert --insert tmp.db prs -
 
 echo "data retrieved"
 
