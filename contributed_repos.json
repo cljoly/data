@@ -6,6 +6,7 @@
  {"repo_url": "https://github.com/kagisearch/smallweb", "pr_count": 2},
  {"repo_url": "https://github.com/gopasspw/gopass", "pr_count": 2},
  {"repo_url": "https://github.com/zk-org/zk-nvim", "pr_count": 1},
+ {"repo_url": "https://github.com/wsdjeg/SpaceVim", "pr_count": 1},
  {"repo_url": "https://github.com/twpayne/chezmoi", "pr_count": 1},
  {"repo_url": "https://github.com/starship/starship", "pr_count": 1},
  {"repo_url": "https://github.com/simrat39/symbols-outline.nvim", "pr_count": 1},
@@ -36,7 +37,6 @@
  {"repo_url": "https://github.com/cjbassi/i3-workspace-groups", "pr_count": 1},
  {"repo_url": "https://github.com/asciinema/asciinema-player", "pr_count": 1},
  {"repo_url": "https://github.com/TabbyML/tabby", "pr_count": 1},
- {"repo_url": "https://github.com/SpaceVim/SpaceVim", "pr_count": 1},
  {"repo_url": "https://github.com/PierreMarchand20/personal_webpage", "pr_count": 1},
  {"repo_url": "https://github.com/IFS49F/Tab2QR", "pr_count": 1},
  {"repo_url": "https://github.com/ChrisAntaki/disable-webrtc-firefox", "pr_count": 1}]

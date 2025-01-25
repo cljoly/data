@@ -42,7 +42,7 @@
  {"created_at": "2020-04-18T14:19:15Z", "title": "Add shortcut to trigger webrtc", "html_url": "https://github.com/ChrisAntaki/disable-webrtc-firefox/pull/31", "state": "closed"},
  {"created_at": "2019-11-17T21:38:32Z", "title": "Add subcommand to audit to list old password", "html_url": "https://github.com/gopasspw/gopass/pull/1212", "state": "closed"},
  {"created_at": "2019-10-19T22:54:54Z", "title": "Refactor: Remove unnecessary parentheses in if condition", "html_url": "https://github.com/starship/starship/pull/566", "state": "closed"},
- {"created_at": "2019-10-19T17:55:55Z", "title": "Add: easy way to send esc to the shell layer", "html_url": "https://github.com/SpaceVim/SpaceVim/pull/3170", "state": "closed"},
+ {"created_at": "2019-10-19T17:55:55Z", "title": "Add: easy way to send esc to the shell layer", "html_url": "https://github.com/wsdjeg/SpaceVim/pull/3170", "state": "closed"},
  {"created_at": "2019-09-21T10:10:58Z", "title": "go build error with go 1.13", "html_url": "https://github.com/gopasspw/gopass/pull/1182", "state": "closed"},
  {"created_at": "2019-03-13T07:17:59Z", "title": "Describe 9.9.9.10 more accurately", "html_url": "https://github.com/getdnsapi/stubby/pull/172", "state": "closed"},
  {"created_at": "2019-01-21T18:42:24Z", "title": "Make rofi prompt explicit", "html_url": "https://github.com/cjbassi/i3-workspace-groups/pull/10", "state": "closed"},
