@@ -1,3 +1,5 @@
 [{"repo_url": "https://github.com/moverest/sway-interactive-screenshot", "pr_count": 2},
+ {"repo_url": "https://github.com/gopasspw/gopass", "pr_count": 2},
+ {"repo_url": "https://github.com/simrat39/symbols-outline.nvim", "pr_count": 1},
  {"repo_url": "https://github.com/jltwheeler/nvim-git-link", "pr_count": 1},
  {"repo_url": "https://github.com/gpanders/fennel-repl.nvim", "pr_count": 1}]
