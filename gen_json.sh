@@ -47,13 +47,13 @@ sqlite-utils create-view tmp.db topic "SELECT DISTINCT \
 	FROM repo, json_each(topics)"
 
 sqlite-utils create-view tmp.db featured_repo "SELECT DISTINCT \
-	repo.rowid AS rowid, private, pushed_at, name, html_url, topics, description, \
+	repo.rowid AS rid, private, pushed_at, name, html_url, topics, description, \
 	stargazers_count, homepage, archived, language, color \
 	FROM repo \
 	JOIN linguist ON lang = repo.language \
 	WHERE \
-	(fork <> 1 OR rowid IN (SELECT rid FROM topic WHERE t = 'maintained-fork')) \
-	AND stargazers_count > 0 AND rowid NOT IN (SELECT rid FROM topic WHERE t = 'internal') \
+	(fork <> 1 OR rid IN (SELECT rid FROM topic WHERE t = 'maintained-fork')) \
+	AND stargazers_count > 0 AND rid NOT IN (SELECT rid FROM topic WHERE t = 'internal') \
 	AND private == 0"
 
 echo "views created"
@@ -61,30 +61,30 @@ echo "views created"
 sqlite-utils query tmp.db --json-cols "SELECT DISTINCT \
 	* \
 	FROM featured_repo \
-	WHERE rowid NOT IN (SELECT rid FROM topic WHERE t = 'archived') \
-	AND rowid NOT IN (SELECT rid FROM topic WHERE t = 'wip') \
+	WHERE rid NOT IN (SELECT rid FROM topic WHERE t = 'archived') \
+	AND rid NOT IN (SELECT rid FROM topic WHERE t = 'wip') \
 	AND archived == 0 \
 	ORDER BY pushed_at DESC" > unarchived_repos.json
 
 sqlite-utils query tmp.db --json-cols "SELECT DISTINCT \
 	* \
 	FROM featured_repo \
-	WHERE rowid NOT IN (SELECT rid FROM topic WHERE t = 'archived') \
-	AND rowid NOT IN (SELECT rid FROM topic WHERE t = 'wip') \
+	WHERE rid NOT IN (SELECT rid FROM topic WHERE t = 'archived') \
+	AND rid NOT IN (SELECT rid FROM topic WHERE t = 'wip') \
 	AND archived == 0 \
 	ORDER BY stargazers_count DESC" > unarchived_most_stars_repos.json
 
 sqlite-utils query tmp.db --json-cols "SELECT DISTINCT \
 	* \
 	FROM featured_repo \
-	WHERE rowid IN (SELECT rid FROM topic WHERE t = 'archived') \
+	WHERE rid IN (SELECT rid FROM topic WHERE t = 'archived') \
 	OR archived == 1 \
 	ORDER BY pushed_at DESC" > archived_repos.json
 
 sqlite-utils query tmp.db --json-cols "SELECT DISTINCT \
 	* \
 	FROM featured_repo \
-	WHERE rowid IN (SELECT rid FROM topic WHERE t = 'wip') \
+	WHERE rid IN (SELECT rid FROM topic WHERE t = 'wip') \
 	AND archived == 0 \
         ORDER BY pushed_at DESC" > wip_repos.json
 
@@ -94,41 +94,41 @@ sqlite-utils query tmp.db --json-cols "SELECT DISTINCT \
 sqlite-utils query tmp.db --json-cols "SELECT DISTINCT \
 	* \
 	FROM featured_repo \
-	WHERE rowid NOT IN (SELECT rid FROM topic WHERE t = 'archived') \
-	AND rowid NOT IN (SELECT rid FROM topic WHERE t = 'wip') \
-	AND rowid IN (SELECT rid FROM topic WHERE t = 'neovim-plugin') \
+	WHERE rid NOT IN (SELECT rid FROM topic WHERE t = 'archived') \
+	AND rid NOT IN (SELECT rid FROM topic WHERE t = 'wip') \
+	AND rid IN (SELECT rid FROM topic WHERE t = 'neovim-plugin') \
 	AND archived == 0 \
 	ORDER BY stargazers_count DESC" > unarchived_nvim_most_stars_repos.json
 
 sqlite-utils query tmp.db --json-cols "SELECT DISTINCT \
 	* \
 	FROM featured_repo \
-	WHERE rowid IN (SELECT rid FROM topic WHERE t = 'wip') \
-	AND rowid IN (SELECT rid FROM topic WHERE t = 'neovim-plugin') \
+	WHERE rid IN (SELECT rid FROM topic WHERE t = 'wip') \
+	AND rid IN (SELECT rid FROM topic WHERE t = 'neovim-plugin') \
 	AND archived == 0 \
     ORDER BY pushed_at DESC" > wip_nvim_repos.json
 
 sqlite-utils query tmp.db --json-cols "SELECT DISTINCT \
 	* \
 	FROM featured_repo \
-	WHERE rowid NOT IN (SELECT rid FROM topic WHERE t = 'archived') \
-	AND rowid NOT IN (SELECT rid FROM topic WHERE t = 'wip') \
-	AND rowid IN (SELECT rid FROM topic WHERE t = 'rust') \
+	WHERE rid NOT IN (SELECT rid FROM topic WHERE t = 'archived') \
+	AND rid NOT IN (SELECT rid FROM topic WHERE t = 'wip') \
+	AND rid IN (SELECT rid FROM topic WHERE t = 'rust') \
 	AND archived == 0 \
 	ORDER BY stargazers_count DESC" > unarchived_rust_most_stars_repos.json
 
 sqlite-utils query tmp.db --json-cols "SELECT DISTINCT \
 	* \
 	FROM featured_repo \
-	WHERE rowid IN (SELECT rid FROM topic WHERE t = 'wip') \
-	AND rowid IN (SELECT rid FROM topic WHERE t = 'rust') \
+	WHERE rid IN (SELECT rid FROM topic WHERE t = 'wip') \
+	AND rid IN (SELECT rid FROM topic WHERE t = 'rust') \
 	AND archived == 0 \
     ORDER BY pushed_at DESC" > wip_rust_repos.json
 
 sqlite-utils query tmp.db --json-cols "SELECT DISTINCT \
 	* \
 	FROM featured_repo \
-	WHERE rowid IN (SELECT rid FROM topic WHERE t = 'hugo-module') \
+	WHERE rid IN (SELECT rid FROM topic WHERE t = 'hugo-module') \
 	AND archived == 0 \
         ORDER BY pushed_at DESC" > hugo_modules_repos.json
 
